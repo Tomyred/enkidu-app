@@ -51,12 +51,12 @@ const Balance = ({ navigation, route }) => {
             <View style={[styles.topContainer, { flex: 1 }]}>
                 <Text fontSize='xbg' value={"Para no pelearse deben pagar:"} />
                 <View style={{ flex: 1, width: "100%" }}>
-                    {balance.map((payer) => {
+                    {balance.map((payer, i) => {
                         return (
-                            <View>
+                            <View key={i}>
                                 <Text style={{ marginTop: 20, marginBotton: 20 }} fontSize='bg' value={`${payer.name} debe pagar:`} />
-                                {payer.payments.map((pay) => {
-                                    return <Text value={`$${pay.amount} a ${pay.to}`} />;
+                                {payer.payments.map((pay, j) => {
+                                    return <Text key={j} value={`$${pay.amount} a ${pay.to}`} />;
                                 })}
                             </View>
                         );

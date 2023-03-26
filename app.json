@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "enkidu",
+    "scheme": "enkidu",
+    "name": "Enkidu",
     "slug": "enkidu",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,6 +29,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c7709668-e89f-43ff-8616-ba952d66be84"
+      }
     }
   }
 }
