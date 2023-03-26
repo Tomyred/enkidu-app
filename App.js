@@ -1,20 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-gesture-handler";
+import { StatusBar } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-view";
+import UserProvider from "./src/context/UserContext/UserProvider";
+import AppNavigation from "./src/navigation/AppNavigator";
+import { statusTheme, theme } from "./src/styles/theme";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <SafeAreaProvider>
+            <UserProvider>
+                <StatusBar backgroundColor={statusTheme.barBackground} barStyle={statusTheme.barStyle} />
+                <AppNavigation />
+            </UserProvider>
+        </SafeAreaProvider>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
