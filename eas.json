@@ -3,20 +3,15 @@
     "version": ">= 3.8.1"
   },
   "build": {
-    "development": {
-      "developmentClient": true,
+    "test": {
       "distribution": "internal",
+      "channel": "test",
       "ios": {
         "resourceClass": "m-medium"
       }
     },
-    "preview": {
-      "distribution": "internal",
-      "ios": {
-        "resourceClass": "m-medium"
-      }
-    },
-    "production": {
+    "prod": {
+      "channel": "prod",
       "ios": {
         "resourceClass": "m-medium"
       }
