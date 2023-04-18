@@ -51,7 +51,7 @@ const Balance = ({ navigation, route }) => {
             <View style={[styles.topContainer, { flex: 1 }]}>
                 <Text fontSize='xbg' value={"Para no pelearse deben pagar:"} />
                 <View style={{ flex: 1, width: "100%" }}>
-                    {balance.map((payer, i) => {
+                    { payers.length > 0 ? balance.map((payer, i) => {
                         return (
                             <View key={i}>
                                 <Text style={{ marginTop: 20, marginBotton: 20 }} fontSize='bg' value={`${payer.name} debe pagar:`} />
@@ -60,7 +60,7 @@ const Balance = ({ navigation, route }) => {
                                 })}
                             </View>
                         );
-                    })}
+                    }) : <Text fontSize='bg' style={{marginTop: 20}} value={"No hay garcas, todos aportaron lo que corresponde."} /> }
                 </View>
             </View>
         </SafeAreaView>

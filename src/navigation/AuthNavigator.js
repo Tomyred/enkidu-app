@@ -7,31 +7,31 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-nat
 const Stack = createStackNavigator();
 
 const styles = StyleSheet.create({
-    actionIcon: {
-        marginRight: 10,
-    },
+	actionIcon: {
+		marginRight: 10,
+	},
 });
 
 function AuthNavigator() {
-    const navigationLogoOpts = {
-        headerStyle: {
-            height: Platform.select({
-                ios: 124,
-                android: hp(12),
-            }),
-        },
-        headerTransparent: false,
-        title: "",
-        headerTitleAlign: "center",
-        cardStyle: Platform.select({ android: { backgroundColor: "#FFFFFF" }, ios: { backgroundColor: "#F4F4F4" } }),
-        gestureEnabled: false,
-    };
+	const navigationLogoOpts = {
+		headerStyle: {
+			height: Platform.select({
+				ios: 124,
+				android: hp(12),
+			}),
+		},
+		headerTransparent: false,
+		title: "",
+		headerTitleAlign: "center",
+		cardStyle: Platform.select({ android: { backgroundColor: "#FFFFFF" }, ios: { backgroundColor: "#F4F4F4" } }),
+		gestureEnabled: false,
+	};
 
-    return (
-        <Stack.Navigator initialRouteName={"Login"} screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Login" component={Login} />
-        </Stack.Navigator>
-    );
+	return (
+		<Stack.Navigator initialRouteName={"Login"} screenOptions={{ headerShown: false }}>
+			<Stack.Screen name="Login" component={Login} />
+		</Stack.Navigator>
+	);
 }
 
 export default AuthNavigator;

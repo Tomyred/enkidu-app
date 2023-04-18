@@ -9,54 +9,59 @@ import { USER } from "../../../constants/storage";
 import { theme } from "../../../styles/theme";
 
 const Login = ({ navigation }) => {
-    const [loginInfo, setLoginInfo] = useState({ user: "", password: "" });
-    const { dispatch } = useContext(UserContext);
+	const [loginInfo, setLoginInfo] = useState({ user: "", password: "" });
+	const { dispatch } = useContext(UserContext);
 
-    const doLogin = async () => {
-        const user = {
-            name: "John",
-            surname: "Doe",
-            age: 20,
-        };
+	const doLogin = async () => {
+		const user = {
+			name: "John",
+			surname: "Doe",
+			age: 20,
+		};
 
-        if (loginInfo.user === "JohnDoe" && loginInfo.password === "123456") {
-            console.log(true);
-            1;
-            await setItem(USER, user);
-            dispatch({
-                type: LOGIN_SUCCEED,
-                payload: {
-                    name: "John",
-                    surname: "Doe",
-                    age: 20,
-                },
-            });
-            navigation.reset({
-                index: 0,
-                routes: [{ name: "Drawer" }],
-            });
-        }
-    };
+		if (loginInfo.user === "JohnDoe" && loginInfo.password === "123456") {
+			console.log(true);
+			1;
+			await setItem(USER, user);
+			dispatch({
+				type: LOGIN_SUCCEED,
+				payload: {
+					name: "John",
+					surname: "Doe",
+					age: 20,
+				},
+			});
+			navigation.reset({
+				index: 0,
+				routes: [{ name: "Home" }],
+			});
+		}
+	};
 
-    return (
-        <SafeAreaView style={{ flex: 1, padding: 30, backgroundColor: theme.colors.background }}>
-            <Input textSize={"xbg"} value={loginInfo.user} placeholder={"Usuario"} onChangeText={(value) => setLoginInfo({ ...loginInfo, user: value })} />
-            <Input
-                secure
-                textSize={"xbg"}
-                value={loginInfo.password}
-                placeholder={"Contraseña"}
-                onChangeText={(value) => setLoginInfo({ ...loginInfo, password: value })}
-            />
-            <Button
-                color='primary'
-                disabled={loginInfo.user.length === 0 || loginInfo.password.length === 0}
-                onPress={doLogin}
-                title='Ingresar'
-                backgroundColor={"error"}
-            />
-        </SafeAreaView>
-    );
+	return (
+		<SafeAreaView style={{ flex: 1, padding: 30, backgroundColor: theme.colors.background }}>
+			<Input
+				textSize={"xbg"}
+				value={loginInfo.user}
+				placeholder={"Usuario"}
+				onChangeText={(value) => setLoginInfo({ ...loginInfo, user: value })}
+			/>
+			<Input
+				secure
+				textSize={"xbg"}
+				value={loginInfo.password}
+				placeholder={"Contraseña"}
+				onChangeText={(value) => setLoginInfo({ ...loginInfo, password: value })}
+			/>
+			<Button
+				color="primary"
+				disabled={loginInfo.user.length === 0 || loginInfo.password.length === 0}
+				onPress={doLogin}
+				title="Ingresar"
+				backgroundColor={"error"}
+			/>
+		</SafeAreaView>
+	);
 };
 
 export default Login;

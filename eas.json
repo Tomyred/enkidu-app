@@ -7,13 +7,13 @@
       "distribution": "internal",
       "channel": "test",
       "ios": {
-        "resourceClass": "m-medium"
+        "resourceClass": "m1-medium"
       }
     },
     "prod": {
       "channel": "prod",
       "ios": {
-        "resourceClass": "m-medium"
+        "resourceClass": "m1-medium"
       }
     }
   },
